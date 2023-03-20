@@ -1,13 +1,12 @@
 package com.example.highschool;
 
-/**
- * Hello world!
- *
- */
+import com.example.highschool.model.Student;
+
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        Student examplStudent = new Student("216000924");
+        System.out.println(examplStudent.getStudentNumber());
     }
 }
