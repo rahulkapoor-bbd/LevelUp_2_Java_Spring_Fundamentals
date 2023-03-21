@@ -1,12 +1,16 @@
 package com.example.highschool;
 
+import com.example.highschool.model.CulturalActivity;
 import com.example.highschool.model.Student;
 
 public class App 
 {
     public static void main( String[] args )
     {
-        Student examplStudent = new Student("216000924");
-        System.out.println(examplStudent.getStudentNumber());
+        // Create all objects here to test
+        CulturalActivity readingClub = new CulturalActivity("Reading Club", 4);
+        CulturalActivity cookingClub = new CulturalActivity("Cooking Club", 4);
     }
+        
 }
+
