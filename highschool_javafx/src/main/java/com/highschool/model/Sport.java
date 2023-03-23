@@ -1,10 +1,9 @@
 package com.highschool.model;
 
-
 public class Sport {
     private String name;
     private int credits;
-     
+
     public Sport() {
     }
 
@@ -24,7 +23,7 @@ public class Sport {
     public int getCredits() {
         return credits;
     }
-    
+
     public void setCredits(int credits) {
         this.credits = credits;
     }
