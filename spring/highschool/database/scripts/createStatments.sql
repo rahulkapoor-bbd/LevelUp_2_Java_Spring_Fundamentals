@@ -13,7 +13,7 @@ CREATE TABLE `Student` (
   `student_number` varchar(10),
   `first_name` varchar(255),
   `last_name` varchar(255),
-  `date_of_birth` varchar(255)
+  `date_of_birth` datetime
 );
 
 CREATE TABLE `Teacher` (

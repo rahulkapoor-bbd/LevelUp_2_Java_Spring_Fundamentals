@@ -13,3 +13,11 @@ VALUES
         ('Physical Sciences', 11, 'Complex calculations of matter', 1),
         ('Chemistry', 10, 'Introduction to molecules', 2),
         ('Mathematics', 10, 'Introduction to algebra', 4);
+
+INSERT INTO student (student_number, first_name, last_name, date_of_birth)
+VALUES 
+        ('0000000001','Sihle','Zwane','1997-03-12'),
+        ('0000000002','Bonga','Zulu','1997-03-12'),
+        ('0000000003','Ntokozo','Mbambo','1997-03-12'),
+        ('0000000004','Mpume','Shazi','1997-03-12'),
+        ('0000000005','Naomi','Becker','1997-03-12');
