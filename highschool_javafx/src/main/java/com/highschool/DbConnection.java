@@ -7,7 +7,7 @@ public class DbConnection {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:8080/", "username", "password");
+                    "jdbc:mysql://localhost:3306/HighSchoolDB", "username", "password");
             // here sonoo is database name, root is username and password
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * from student");
