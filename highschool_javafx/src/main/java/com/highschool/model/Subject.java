@@ -1,17 +1,17 @@
 package com.highschool.model;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Subject {
     private String name;
     private int credits;
-    private List<Double> testMarks;
+    private ArrayList<Double> testMarks;
     private double finalMark;
     
     public Subject() {
     }
     
-    public Subject(String name, int credits, List<Double> testMarks, double finalMark) {
+    public Subject(String name, int credits, ArrayList<Double> testMarks, double finalMark) {
         this.name = name;
         this.credits = credits;
         this.testMarks = testMarks;
@@ -34,11 +34,11 @@ public class Subject {
         this.credits = credits;
     }
 
-    public List<Double> getTestMarks() {
+    public ArrayList<Double> getTestMarks() {
         return testMarks;
     }
 
-    public void setTestMarks(List<Double> testMarks) {
+    public void setTestMarks(ArrayList<Double> testMarks) {
         this.testMarks = testMarks;
     }
 
