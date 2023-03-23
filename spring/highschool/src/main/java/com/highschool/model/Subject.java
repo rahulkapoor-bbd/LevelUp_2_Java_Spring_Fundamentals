@@ -32,12 +32,6 @@ public class Subject {
     @Column(name = "description")
     private String description;
 
-    /* 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "teacher_id", nullable = false)
-    @JsonIgnore
-    private Teacher teacher;
-    */
     @Column(name = "teacher_id")
     private Long teacherId;
     

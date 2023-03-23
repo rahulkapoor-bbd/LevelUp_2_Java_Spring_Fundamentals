@@ -1,5 +1,7 @@
 package com.highschool.model;
 
+import java.sql.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,11 +9,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
 @Table(name = "student")
 public class Student {
     
@@ -30,12 +34,9 @@ public class Student {
     private String lastName;
 
     @Column(name = "date_of_birth")
-    private String dateOfBirth;
+    private Date dateOfBirth;
 
-    public Student()
-    {}
-
-    public Student(String studentNumber, String firstName, String lastName, String dateOfBirth) {
+    public Student(String studentNumber, String firstName, String lastName, Date dateOfBirth) {
         this.studentNumber = studentNumber;
         this.firstName = firstName;
         this.lastName = lastName;
