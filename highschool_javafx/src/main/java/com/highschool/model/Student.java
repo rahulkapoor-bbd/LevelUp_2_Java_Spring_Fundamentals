@@ -2,17 +2,14 @@ package com.highschool.model;
 
 import java.util.ArrayList;
 
-public class Student {
+public class Student extends Person {
     private String studentNumber;
     private int grade;
 
-    public Student() {
-    }
-
-    public Student(String studentNumber, int grade, ArrayList<CulturalActivity> enrolledCulturalActivities) {
+    public Student(String name, String id, String surname,String studentNumber, int grade, ArrayList<CulturalActivity> enrolledCulturalActivities) {
+        super(name, id, surname);
         this.studentNumber = studentNumber;
         this.grade = grade;
-        this.enrolledCulturalActivities = enrolledCulturalActivities;
     }
 
     public String getStudentNumber() {
@@ -31,35 +28,12 @@ public class Student {
         this.grade = grade;
     }
 
-    public ArrayList<CulturalActivity> getEnrolledCulturalActivities() {
-        return enrolledCulturalActivities;
-    }
-
-    public void setEnrolledCulturalActivities(ArrayList<CulturalActivity> enrolledCulturalActivities) {
-        this.enrolledCulturalActivities = enrolledCulturalActivities;
-    }
-
-    // private ArrayList<Subject> enrolledSubjects;
-    // private ArrayList<Sport> enrolledSports;
-    private ArrayList<CulturalActivity> enrolledCulturalActivities;
-
-    // public void enrollForSubjects(ArrayList<Subject> subjects) {
-    //     enrolledCulturalActivities.addAll(subjects);
-    // }
-    // public void enrollForSports(ArrayList<Sport> sports) {
-    //     enrolledCulturalActivities.addAll(sports);
-    // }
-
-    public void enrollForCulturalActivities(ArrayList<CulturalActivity> culturals) {
-        enrolledCulturalActivities.addAll(culturals);
-    }
-
     public double calculateTotalAverage() {
         double totalAverage = 0;
-        // for (int i = 0; i < enrolledSports.size(); i++) {
-        //     totalAverage += enrolledSports.get(i).getFinalMark();
-        // }
-        // totalAverage /= enrolledSports.size();
+        for (int i = 0; i < enrolledSubjects.size(); i++) {
+            totalAverage += enrolledSubjects.get(i).getFinalMark();
+        }
+        totalAverage /= enrolledSports.size();
         return totalAverage;
     }
 
