@@ -17,7 +17,23 @@ VALUES
 INSERT INTO student (student_number, first_name, last_name, date_of_birth)
 VALUES 
         ('0000000001','Sihle','Zwane','1997-03-12'),
-        ('0000000002','Bonga','Zulu','1997-03-12'),
-        ('0000000003','Ntokozo','Mbambo','1997-03-12'),
-        ('0000000004','Mpume','Shazi','1997-03-12'),
-        ('0000000005','Naomi','Becker','1997-03-12');
+        ('0000000002','Bonga','Zulu','1996-08-19'),
+        ('0000000003','Ntokozo','Mbambo','1995-07-14'),
+        ('0000000004','Mpume','Shazi','1999-06-09'),
+        ('0000000005','Naomi','Becker','1991-09-13');
+
+INSERT INTO exam (exam_Date, exam_name)
+VALUES 
+        ('2022-06-12', 'Mathematics Exam'),
+        ('2022-06-09', 'Chemistry Exam'),
+        ('2022-10-11', 'Mathematics Exam'),
+        ('2023-11-17', 'English Home Language Exam'),
+        ('2023-11-14', 'Chemistry Exam');
+
+INSERT INTO studentsubject (student_id, subject_id)
+VALUES
+        (0000000001, 4),
+        (0000000001, 5),
+        (0000000002, 1),
+        (0000000004, 3),
+        (0000000005, 5);

@@ -50,7 +50,7 @@ CREATE TABLE `ClassroomStudent` (
 
 CREATE TABLE `Exam` (
   `exam_id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `date` datetime,
+  `exam_date` datetime,
   `exam_name` varchar(255)
 );
 

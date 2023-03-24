@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.highschool.dto.EnrollStudentDTO;
 import com.highschool.dto.EnrollTeacherDTO;
+import com.highschool.dto.UpdateTeacherDTO;
 import com.highschool.exception.ResourceNotFoundException;
 import com.highschool.model.Student;
 import com.highschool.model.Subject;
@@ -48,6 +49,21 @@ public class HighSchoolService {
     {
         Teacher teacher = modelMapper.map(enrollTeacherDTO, Teacher.class);
         return teacherRepository.save(teacher);
+    }
+
+    public List<Teacher> allTeachers()
+    {
+        return teacherRepository.findAll();
+    }
+
+    public Teacher updateTeacher(Long teacherId, UpdateTeacherDTO updateTeacherDTO)
+    {
+        Teacher existingTeacher = teacherRepository.findById(teacherId)
+            .orElseThrow(() -> new ResourceNotFoundException("Teacher", teacherId));
+        existingTeacher.setLastName(updateTeacherDTO.getLastName());
+        existingTeacher.setPhoneNumber(updateTeacherDTO.getPhoneNumber());
+
+        return teacherRepository.save(existingTeacher);
     }
 
     //Subjects

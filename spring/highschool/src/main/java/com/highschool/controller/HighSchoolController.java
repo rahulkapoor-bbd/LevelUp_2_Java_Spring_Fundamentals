@@ -8,11 +8,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.highschool.dto.EnrollStudentDTO;
 import com.highschool.dto.EnrollTeacherDTO;
+import com.highschool.dto.UpdateTeacherDTO;
 import com.highschool.model.Student;
 import com.highschool.model.Subject;
 import com.highschool.model.Teacher;
@@ -51,9 +53,23 @@ public class HighSchoolController {
         return new ResponseEntity<>(highSchoolService.enrollTeacher(enrollTeacherDTO), HttpStatus.CREATED);
     }
 
+    @GetMapping("/teachers")
+    @Operation(summary = "Get teachers that work at the school.", description = "Returns a list of all teachers working at the school.")
+    public ResponseEntity<List<Teacher>> allTeachers()
+    {
+        return new ResponseEntity<>(highSchoolService.allTeachers(), HttpStatus.OK);
+    }
+
+    @PutMapping("/teachers/{teacherId}")
+    @Operation(summary = "Update an existing teacher.", description = "Updates and returns an exisiting teacher.")
+    public ResponseEntity<Teacher> updateTeacher(@PathVariable Long teacherId, @RequestBody UpdateTeacherDTO UpdateTeacherDTO)
+    {
+        return new ResponseEntity<>(highSchoolService.updateTeacher(teacherId, UpdateTeacherDTO), HttpStatus.OK);
+    }
     //Subjects
 
     @PostMapping("subjects/{teacherId}")
+    @Operation(summary = "Assign an exisiting teacher to a new subject.", description = "Returns new subject associated with an exisiting teacher.")
     public ResponseEntity<Subject> createSubject(@PathVariable Long teacherId, @RequestBody Subject subject)
     {
         return new ResponseEntity<>(highSchoolService.createSubject(teacherId, subject), HttpStatus.CREATED);
