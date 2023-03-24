@@ -4,12 +4,10 @@ import java.util.ArrayList;
 
 public class Student extends Person {
     private String studentNumber;
-    private int grade;
 
-    public Student(String name, String id, String surname,String studentNumber, int grade, ArrayList<CulturalActivity> enrolledCulturalActivities) {
+    public Student(String name, int id, String surname,String studentNumber) {
         super(name, id, surname);
         this.studentNumber = studentNumber;
-        this.grade = grade;
     }
 
     public String getStudentNumber() {
@@ -20,13 +18,13 @@ public class Student extends Person {
         this.studentNumber = studentNumber;
     }
 
-    public int getGrade() {
-        return grade;
-    }
+    // public int getGrade() {
+    //     return grade;
+    // }
 
-    public void setGrade(int grade) {
-        this.grade = grade;
-    }
+    // public void setGrade(int grade) {
+    //     this.grade = grade;
+    // }
 
     public double calculateTotalAverage() {
         double totalAverage = 0;

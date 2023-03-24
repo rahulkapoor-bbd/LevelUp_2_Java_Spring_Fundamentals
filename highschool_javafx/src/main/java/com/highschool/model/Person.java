@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class Person {
     protected String name;
     protected String surname;
-    protected String id;
+    protected int id;
     protected ArrayList<Subject> enrolledSubjects;
     protected ArrayList<Sport> enrolledSports;
     protected ArrayList<CulturalActivity> enrolledCulturalActivities;
 
-    public Person(String name, String id, String surname) {
+    public Person(String name, int id, String surname) {
         this.name = name;
         this.id = id;
         this.surname = surname;
@@ -35,11 +35,11 @@ public class Person {
         this.surname = surname;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

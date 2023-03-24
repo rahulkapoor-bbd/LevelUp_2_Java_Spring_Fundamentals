@@ -1,6 +1,10 @@
 package com.highschool;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
+import com.highschool.model.Student;
+
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;
@@ -14,7 +18,15 @@ public class PrimaryController {
     private Button btnLogout;
 
     @FXML
+    private ComboBox<String> cmbStudents;
+
+    @FXML
+    private ComboBox<String> cmbTeachers;
+
+    @FXML
     private void switchToStudentView() throws IOException {
+        System.out.println(cmbStudents.getValue());
+        StudentController.setCurrentStudent(new Student(null, Integer.parseInt(cmbStudents.getValue().substring(0, cmbStudents.getValue().indexOf(","))), null, null));
         App.setRoot("student");
     }
 
@@ -24,13 +36,22 @@ public class PrimaryController {
     }
 
     @FXML
-    private void getData() {
+    private void getData() throws SQLException {
         DbConnection connection = new DbConnection();
-        connection.connect();
+        connection.selectAllStudents();
+        connection.selectAllTeachers();
+        for (int i = 0; i < connection.getStudents().size(); i++) {
+            cmbStudents.getItems().add(connection.getStudents().get(i).getId() + ", " + connection.getStudents().get(i).getName());
+        }
+        for (int i = 0; i < connection.getStudents().size(); i++) {
+            cmbTeachers.getItems().add(connection.getTeachers().get(i).getId() + ", " + connection.getStudents().get(i).getName());
+        }
     }
 
     @FXML
-    private void initialize() throws IOException {
+    private void initialize() throws Exception {
         getData();
     }
+
+
 }

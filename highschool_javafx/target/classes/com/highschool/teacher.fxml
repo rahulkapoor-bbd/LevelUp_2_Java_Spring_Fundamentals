@@ -15,7 +15,7 @@
         <Label text="You are enrolled to teach the following activities:"/>
         <TextArea fx:id="txtaEntolledActivities" text=""/>
         <Label text="You may enroll to teach the following additional activities:"/>
-        <TextArea fx:id="txtaNotEnrolledActivities" text=""/>
+        <!-- <TextArea fx:id="txtaNotEnrolledActivities" text=""/> -->
         <ComboBox fx:id="cmbNotEnrolledActivities" promptText="Select Activity"/>
         <Button fx:id="btnEnrollForActivity" text="Enroll" />
         <Button fx:id="btnLogout" text="Log Out" onAction="#logout"/>

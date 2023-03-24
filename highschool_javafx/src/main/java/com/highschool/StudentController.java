@@ -12,7 +12,11 @@ import javafx.scene.control.TextArea;
 
 public class StudentController {
 
-    private Student currentStudent;
+    private static Student currentStudent;
+
+    public static void setCurrentStudent(Student c) {
+        currentStudent = c;
+    }
 
     @FXML
     private Label lblStudentDetails;
