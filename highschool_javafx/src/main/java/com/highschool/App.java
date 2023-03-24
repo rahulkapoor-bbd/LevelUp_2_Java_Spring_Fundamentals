@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.highschool.model.LoginDialog;
+
 /**
  * JavaFX App
  */
@@ -20,6 +22,11 @@ public class App extends Application {
         scene = new Scene(loadFXML("primary"), 1280, 720);
         stage.setScene(scene);
         stage.show();
+
+        // LoginDialog loginDialog = new LoginDialog();
+        // loginDialog.showAndWait();
+        // stage.close();
+        
     }
 
     static void setRoot(String fxml) throws IOException {
