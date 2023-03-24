@@ -7,6 +7,8 @@ import com.highschool.model.Student;
 import com.highschool.model.Subject;
 import com.highschool.model.Teacher;
 
+import javafx.scene.control.Alert;
+
 public class DbConnection {
     private ArrayList<Student> students;
     private ArrayList<Teacher> teachers;
@@ -18,7 +20,7 @@ public class DbConnection {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/HighSchoolDB", "username", "password");
+                    "jdbc:mysql://localhost:3307/HighSchoolDB", "username", "password");
             // Statement stmt = con.createStatement();
             // ResultSet rs = stmt.executeQuery("SELECT * from subject");
             // while (rs.next())
@@ -26,7 +28,11 @@ public class DbConnection {
             // rs.getString(3));
             // con.close();
         } catch (Exception e) {
-            System.out.println(e);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText(e.toString());
+            alert.showAndWait();
+           // System.out.println(e);
         }
     }
 

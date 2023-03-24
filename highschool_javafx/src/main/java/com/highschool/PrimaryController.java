@@ -26,7 +26,7 @@ public class PrimaryController {
 
     @FXML
     private void switchToStudentView() throws Exception {
-        System.out.println(cmbStudents.getValue());
+        // System.out.println(cmbStudents.getValue());
         StudentController.setCurrentStudent(new Student(cmbStudents.getValue().substring(cmbStudents.getValue().indexOf(",")+1, cmbStudents.getValue().length()), Integer.parseInt(cmbStudents.getValue().substring(0, cmbStudents.getValue().indexOf(","))), null, null));
         App.setRoot("student");
     }

@@ -4,4 +4,5 @@ module com.highschool {
     requires java.sql;
     opens com.highschool to javafx.fxml;
     exports com.highschool;
+    exports com.highschool.model;
 }
