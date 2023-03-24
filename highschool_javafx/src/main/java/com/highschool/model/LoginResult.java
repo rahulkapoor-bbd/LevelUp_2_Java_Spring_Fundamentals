@@ -3,7 +3,7 @@ package com.highschool.model;
 import javafx.scene.control.ButtonType;
 
 public class LoginResult {
-    private Person person;
+ Person person = new Person();
 
     public LoginResult(Person person) {
         this.person = person;

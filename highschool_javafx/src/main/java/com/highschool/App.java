@@ -21,6 +21,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("primary"), 1280, 720);
         stage.setScene(scene);
+        stage.setTitle("High School Management");
         stage.show();
 
         // LoginDialog loginDialog = new LoginDialog();
@@ -29,7 +30,7 @@ public class App extends Application {
         
     }
 
-    static void setRoot(String fxml) throws IOException {
+    public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 

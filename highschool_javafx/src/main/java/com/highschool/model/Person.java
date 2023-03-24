@@ -6,6 +6,8 @@ public class Person {
     protected String name;
     protected String surname;
     protected int id;
+    private String username;
+    private String password;
     protected ArrayList<Subject> enrolledSubjects;
     protected ArrayList<Sport> enrolledSports;
     protected ArrayList<CulturalActivity> enrolledCulturalActivities;
@@ -39,8 +41,20 @@ public class Person {
         return id;
     }
 
+    public String getPassword(){
+        return password;
+    }
+
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setPassword(String password){
+        this.password = password;
+    }
+
+    public void setUsername(String username){
+        this.username = username;
     }
 
     public ArrayList<Subject> getEnrolledSubjects() {
@@ -77,5 +91,9 @@ public class Person {
 
     public void enrollForCulturalActivities(ArrayList<CulturalActivity> culturals) {
         enrolledCulturalActivities.addAll(culturals);
+    }
+
+    public Object getUsername() {
+        return null;
     }
 }
