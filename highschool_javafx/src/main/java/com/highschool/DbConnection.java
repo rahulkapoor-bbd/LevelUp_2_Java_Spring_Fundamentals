@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import com.highschool.model.Student;
+import com.highschool.model.Subject;
 import com.highschool.model.Teacher;
 
 public class DbConnection {
@@ -21,14 +22,15 @@ public class DbConnection {
             // Statement stmt = con.createStatement();
             // ResultSet rs = stmt.executeQuery("SELECT * from subject");
             // while (rs.next())
-            //     System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
+            // System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " +
+            // rs.getString(3));
             // con.close();
         } catch (Exception e) {
             System.out.println(e);
         }
     }
 
-    public void selectAllStudents() throws SQLException{
+    public void selectAllStudents() throws SQLException {
         ResultSet rs = con.createStatement().executeQuery("SELECT * FROM student");
         int id = 0;
         String studentNumber = null;
@@ -41,10 +43,10 @@ public class DbConnection {
             surname = rs.getString(4);
             students.add(new Student(name, id, surname, studentNumber));
         }
-        
+
     }
 
-    public void selectAllTeachers() throws SQLException{
+    public void selectAllTeachers() throws SQLException {
         ResultSet rs = con.createStatement().executeQuery("SELECT * FROM teacher");
         int id = 0;
         String name = null;
@@ -55,7 +57,35 @@ public class DbConnection {
             surname = rs.getString(2);
             teachers.add(new Teacher(name, id, surname));
         }
-        
+
+    }
+
+    public ArrayList<Subject> selectStudentSubjects(int id) throws SQLException {
+        ArrayList<Subject> subjects = new ArrayList<Subject>();
+        ResultSet rs = con.createStatement().executeQuery(
+                "select s.*, c.* from student s inner join StudentSubject u on s.student_id = u.student_id inner join Subject c on c.subject_id = u.subject_id;");
+        String name = "";
+        while (rs.next()) {
+            name = rs.getString(7);
+            if (id == rs.getInt(1)) {
+                subjects.add(new Subject(name, 0, null, 0));
+            }
+        }
+        return subjects;
+    }
+
+    public ArrayList<Subject> selectTeacherSubjects(int id) throws SQLException {
+        ArrayList<Subject> subjects = new ArrayList<Subject>();
+        ResultSet rs = con.createStatement().executeQuery(
+                "select * from subject where teacher_id = "+ id +";");
+        String name = "";
+        while (rs.next()) {
+            name = rs.getString(2);
+            if (id == rs.getInt(5)) {
+                subjects.add(new Subject(name, 0, null, 0));
+            }
+        }
+        return subjects;
     }
 
     public ArrayList<Student> getStudents() {
@@ -66,8 +96,4 @@ public class DbConnection {
         return teachers;
     }
 
-
-    
-
-    
 }

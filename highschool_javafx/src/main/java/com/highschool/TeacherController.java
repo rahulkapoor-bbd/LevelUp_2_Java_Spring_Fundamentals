@@ -1,6 +1,7 @@
 package com.highschool;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import com.highschool.model.Teacher;
 import javafx.fxml.FXML;
@@ -12,7 +13,11 @@ import javafx.scene.control.TextArea;
 
 public class TeacherController {
 
-    private Teacher currenTeacher;
+    private static Teacher currenTeacher;
+
+    public static void setCurrentTeacher(Teacher t) {
+        currenTeacher = t;
+    }
 
     @FXML
     private Label lblStudentDetails;
@@ -34,13 +39,21 @@ public class TeacherController {
 
     @FXML
     private void showStudentDetails() throws IOException {
-        String details = "";
+        String details = "ID: " + currenTeacher.getId() + "\nName: " + currenTeacher.getName();;
         lblStudentDetails.setText(details);
     }
 
     @FXML
-    private void showEnrollmenttDetails() throws IOException {
+    private void showEnrollmenttDetails() throws IOException, SQLException {
+        DbConnection c = new DbConnection();
+        currenTeacher.setEnrolledSubjects(c.selectTeacherSubjects(currenTeacher.getId()));
         String enrollmentDetails = "No activities registered";
+        if (currenTeacher.getEnrolledSubjects() != null) {
+            enrollmentDetails = "";
+            for (int i = 0; i < currenTeacher.getEnrolledSubjects().size(); i++) {
+                enrollmentDetails += currenTeacher.getEnrolledSubjects().get(i).getName() + "\n";
+            }
+        }
         txtaEntolledActivities.setText(enrollmentDetails);
         txtaEntolledActivities.setEditable(false);
     }
@@ -59,9 +72,9 @@ public class TeacherController {
     }
 
     @FXML
-    private void initialize() throws IOException {
+    private void initialize() throws IOException, SQLException {
         showStudentDetails();
         showEnrollmenttDetails();
-        showNotEnrollmenttDetails();
+        // showNotEnrollmenttDetails();
     }
 }

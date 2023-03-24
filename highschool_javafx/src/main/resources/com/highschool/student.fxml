@@ -14,11 +14,11 @@
         <Label fx:id="lblStudentDetails" text=""/>
         <Label text="You are enrolled for the following activities:"/>
         <TextArea fx:id="txtaEntolledActivities" text=""/>
-        <Label text="You may enroll for the following activities:"/>
+        <!-- <Label text="You may enroll for the following activities:"/> -->
         <!-- <TextArea fx:id="txtaNotEnrolledActivities" text=""/> -->
-        <ComboBox fx:id="cmbNotEnrolledActivities" promptText="Select Activity"/>
-        <Button fx:id="btnEnrollForActivity" text="Enroll" />
-        <Button fx:id="btnLogout" text="Log Out" onAction="#logout"/>
+        <!-- <ComboBox fx:id="cmbNotEnrolledActivities" promptText="Select Activity"/> -->
+        <!-- <Button fx:id="btnEnrollForActivity" text="Enroll" /> -->
+        <Button fx:id="btnLogout" text="Go Back" onAction="#logout"/>
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
